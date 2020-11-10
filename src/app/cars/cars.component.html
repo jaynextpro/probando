@@ -9,10 +9,24 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor = "let car of Cars" >
+		<tr *ngFor = "let car of Cars; let Index = index" >
 			<td [ngStyle] = "car.Brand == 'Nissan' ? { 'color': car.Model == 'Skyline R34' ? 'red'  : 'gray'} : { 'color': 'blue' }">{{car.Model}}</td>
 			<td>{{car.Brand}}</td>
 			<td>{{car.Year}}</td>
+
+			<button (click) = "DeleteCar(Index)">Delete</button>
 		</tr>
 	</tbody>
 </table>
+
+<form>
+	<label for="car">Model:</label>
+	<input type="text" name="Model" id="Model" [(ngModel)] = "ActualCar[0]">
+	<label for="car">Brand:</label>
+	<input type="text" name="Brand" id="Brand" [(ngModel)] = "ActualCar[1]">
+	<label for="car">Year:</label>
+	<input type="text" name="Year" id="Year" [(ngModel)] = "ActualCar[2]">
+
+	<button (click) = "AddCar()" >Add</button>
+	<p>{{ActualCar[0]}}</p>
+</form>
