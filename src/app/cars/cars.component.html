@@ -9,10 +9,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor = "let car of Cars; let Index = index" >
+		<tr *ngFor = "let car of Cars; let Index = index">
 			<td [ngStyle] = "car.Brand == 'Nissan' ? { 'color': car.Model == 'Skyline R34' ? 'red'  : 'gray'} : { 'color': 'blue' }">{{car.Model}}</td>
 			<td>{{car.Brand}}</td>
-			<td>{{car.Year}}</td>
+			<td [class.Old] = "car.Year <= 1970" [ngClass] = "{
+			Older: car.Year < 1970,
+			Good: car.Brand == 'Toyota'
+		}">{{car.Year}}</td>
 
 			<button (click) = "DeleteCar(Index)">Delete</button>
 		</tr>

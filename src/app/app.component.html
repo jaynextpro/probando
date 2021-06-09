@@ -1,5 +1,11 @@
+<style type="text/css">
+	.active {
+		color: gray;
+	}
+</style>
 
   <span>Welcome nigga</span>
+<!--  
   <header></header>
 
   <footer *ngIf = "display">
@@ -10,3 +16,8 @@
   <button (click)="displaying(false)" *ngIf = "display">Hide</button>
 
   <cars></cars>
+-->
+  <h2><a [routerLink] = "'/contacts'" [routerLinkActive] = "['active']">Contacts</a></h2>
+  <h2><a [routerLink] = "'/contacts'" [routerLinkActive] = "['active']">Contacts</a></h2>
+
+  <router-outlet></router-outlet>
